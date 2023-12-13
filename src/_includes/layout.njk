@@ -1,3 +1,6 @@
+---
+title: Wellspring Home Services - Quality & Transparency
+---
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,14 +12,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/style.css" />
-    <title>Wellspring Home Services | Portfolio</title>
+    <title>{{ title }}</title>
   </head>
   <body>
-    
-<div class="bg-gray-400 py-8">Hello, portfolio!</div>
-<div class="container mx-auto bg-gray-300">
-  <p class="font-bold text-center">Hello</p>
-</div>
+    {{ content | safe }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   </body>
 </html>
