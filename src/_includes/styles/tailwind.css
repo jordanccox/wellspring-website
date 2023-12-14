@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  a[href]:hover {
+    @apply md:hover:text-orange-600;
+  }
+
+  .selectedLink {
+    @apply bg-orange-500;
+    @apply md:bg-transparent;
+    @apply text-white;
+    @apply rounded;
+    @apply md:text-orange-500;
+  }
+}
