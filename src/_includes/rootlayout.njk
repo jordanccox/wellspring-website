@@ -8,7 +8,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/style.css" />
-    <title>Wellspring Home Services - Quality &amp; Transparency</title>
+    <title>{{ title }}</title>
   </head>
   <body>
     <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
@@ -155,13 +155,7 @@
     </nav>
 
     <hr class="container mx-auto border-slate-400 mt-4" />
-    
-<main class="container mx-auto">
-  
-<div class="">Example content</div>
-
-</main>
-
+    {{ content | safe }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   </body>
 </html>
