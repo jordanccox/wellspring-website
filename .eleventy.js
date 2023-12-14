@@ -2,6 +2,7 @@ const tailwind = require("tailwindcss");
 const postCss = require("postcss");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 const postcssFilter = (cssCode, done) => {
   postCss([
@@ -22,6 +23,7 @@ module.exports = function (config) {
   config.addWatchTarget("./src/_includes/styles/tailwind.css");
   config.addNunjucksAsyncFilter("postcss", postcssFilter);
   config.addPassthroughCopy("./src/bundle.js");
+  config.addPlugin(eleventyNavigationPlugin);
   return {
     passthroughFileCopy: true,
     dir: {
