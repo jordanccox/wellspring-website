@@ -21,6 +21,7 @@ const postcssFilter = (cssCode, done) => {
 module.exports = function (config) {
   config.addWatchTarget("./src/_includes/styles/tailwind.css");
   config.addNunjucksAsyncFilter("postcss", postcssFilter);
+  config.addPassthroughCopy("./src/bundle.js");
   return {
     passthroughFileCopy: true,
     dir: {
