@@ -62,57 +62,27 @@ eleventyNavigation:
 <!-- Portfolio -->
 <section class="bg-orange-500 pb-8">
   <div class="mx-auto bg-transparent">
-    {# <h1 class="pt-4">Work We've Done</h1> #}
     <div
       id="controls-carousel"
       class="relative w-full my-0"
-      data-carousel="static"
+      data-carousel="slide"
     >
       <!-- Carousel wrapper -->
-      <div class="relative h-64 overflow-hidden md:h-[30rem] sm:h-[26rem]">
-        <!-- Item 1 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img
-            src="../images/kitchen-stove.jpg"
-            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="..."
-          />
+      <div
+        class="relative h-[17rem] overflow-hidden lg:h-[44rem] md:h-[36rem] sm:h-[26rem]"
+      >
+        <!-- Populate carousel -->
+        {% for item in portfolio %}
+        <div class="hidden duration-[2000ms] ease-in-out" data-carousel-item>
+          <a href="/portfolio">
+            <img
+              src="../images/portfolio-carousel/{{ item }}"
+              class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              alt="..."
+            />
+          </a>
         </div>
-        <!-- Item 2 -->
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item="active"
-        >
-          <img
-            src="/docs/images/carousel/carousel-2.svg"
-            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="..."
-          />
-        </div>
-        <!-- Item 3 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img
-            src="/docs/images/carousel/carousel-3.svg"
-            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="..."
-          />
-        </div>
-        <!-- Item 4 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img
-            src="/docs/images/carousel/carousel-4.svg"
-            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="..."
-          />
-        </div>
-        <!-- Item 5 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img
-            src="/docs/images/carousel/carousel-5.svg"
-            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="..."
-          />
-        </div>
+        {% endfor %}
       </div>
       <!-- Slider controls -->
       <button
@@ -121,7 +91,7 @@ eleventyNavigation:
         data-carousel-prev
       >
         <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-gray-800/70 group-focus:outline-none"
         >
           <svg
             class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
@@ -147,7 +117,7 @@ eleventyNavigation:
         data-carousel-next
       >
         <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-gray-800/70 group-focus:outline-none"
         >
           <svg
             class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
@@ -258,4 +228,4 @@ eleventyNavigation:
     </div>
   </div>
 </section>
-<!-- Ready to Make Your Dream Project Come True?-->
+<!-- Ready to Make Your Dream Project a Reality?-->
