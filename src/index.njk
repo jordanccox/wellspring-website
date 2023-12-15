@@ -41,11 +41,11 @@ eleventyNavigation:
   </div>
 </section>
 <!-- Who We Are -->
-<section class="bg-orange-500 py-8 px-8">
+<section class="bg-orange-500 py-8 px-2">
   <div class="container mx-auto bg-gray-50 p-4 sm:px-12 px-8 rounded">
     <h1 class="mt-2">Our Story</h1>
     <p>
-      {{about.ourStory}}
+      {{ about.ourStory }}
     </p>
     <div class="flex flex-col sm:flex-row sm:justify-center">
       <a
@@ -58,5 +58,90 @@ eleventyNavigation:
 </section>
 
 <!-- What Previous Customers are Saying -->
-
+<section class="bg-orange-500 pb-8 px-2">
+  <div class="container mx-auto bg-gray-50 p-4 sm:px-12 px-8 rounded">
+    <h1 class="mt-2">What Customers Are Saying</h1>
+    <div
+      id="indicators-carousel"
+      class="relative w-full"
+      data-carousel="static"
+    >
+      <!-- Carousel wrapper -->
+      <div
+        class="relative overflow-x-hidden overflow-y-scroll scrollbar-hide rounded-lg sm:py-32 md:py-40 py-56"
+      >
+        <!-- Item 1 -->
+        {% for item in testimonials %}
+        <div
+          class="hidden duration-700 ease-in-out sm:px-32 px-24 content-center lg:py-16 py-4"
+          data-carousel-item="active"
+        >
+          <p class="content-center italic text-xl">{{ item.text }}</p>
+          <p class="mt-3">- {{ item.name }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- Slider controls -->
+      <button
+        type="button"
+        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full sm:px-4 px-0 cursor-pointer group focus:outline-none"
+        data-carousel-prev
+      >
+        <span
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-gray-800/70 group-focus:outline-none"
+        >
+          <svg
+            class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 1 1 5l4 4"
+            />
+          </svg>
+          <span class="sr-only">Previous</span>
+        </span>
+      </button>
+      <button
+        type="button"
+        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full sm:px-4 px-0 cursor-pointer group focus:outline-none"
+        data-carousel-next
+      >
+        <span
+          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-gray-800/70 group-focus:outline-none"
+        >
+          <svg
+            class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 6 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 9 4-4-4-4"
+            />
+          </svg>
+          <span class="sr-only">Next</span>
+        </span>
+      </button>
+    </div>
+    <div class="flex flex-col sm:flex-row sm:justify-center">
+      <a
+        href="/testimonials"
+        class="inline-flex justify-center items-center py-3 px-5 text-base bg-gray-50 rounded ring-1 ring-slate-800 hover:ring-1 hover:ring-orange-600 font-semibold mt-5 mb-3"
+        >See All Testimonials</a
+      >
+    </div>
+  </div>
+</section>
 <!-- Ready to Make Your Dream Project Come True?-->
