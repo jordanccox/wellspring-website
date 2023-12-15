@@ -30,7 +30,8 @@
   }
 
   #getStarted:hover {
-    @apply text-gray-50;
+    @apply text-slate-800;
+    @apply bg-orange-500;
   }
 }
 
