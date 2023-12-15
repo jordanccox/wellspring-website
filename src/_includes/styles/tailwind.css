@@ -28,6 +28,10 @@
     @apply text-center;
     @apply mb-4;
   }
+
+  #getStarted:hover {
+    @apply text-gray-50;
+  }
 }
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
