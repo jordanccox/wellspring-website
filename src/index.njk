@@ -34,7 +34,7 @@ eleventyNavigation:
       class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4"
     >
       <a
-        href="/services"
+        href="#services"
         class="inline-flex justify-center items-center py-3 px-5 text-base bg-gray-50 rounded ring-1 ring-slate-800 hover:ring-1 hover:ring-orange-600 font-semibold"
         >Our Services</a
       >
@@ -157,7 +157,7 @@ eleventyNavigation:
 </section>
 
 <!-- Our Services -->
-<section class="bg-orange-500 pb-8 px-2">
+<section class="bg-orange-500 pb-8 px-2" id="services">
   <div class="container mx-auto bg-gray-50 p-4 sm:px-12 px-8 rounded">
     <h1 class="mt-2 mb-6">Our Services</h1>
     <div class="flex flex-wrap justify-evenly gap-y-8 mb-4">
@@ -186,7 +186,7 @@ eleventyNavigation:
           </p>
           <div class="flex flex-col sm:flex-row sm:justify-center">
             <a
-              href="/about"
+              href="{{service.url}}"
               class="inline-flex justify-center items-center py-3 px-5 text-base bg-gray-50 rounded ring-1 ring-slate-800 hover:ring-1 hover:ring-orange-600 font-semibold mt-5 mb-3"
               >Learn More</a
             >
