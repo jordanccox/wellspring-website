@@ -207,6 +207,7 @@
               <input
                 type="tel"
                 id="phone"
+                name="Phone"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 focus:border-1 block w-full p-2.5"
                 placeholder="(123) 456-7890"
                 pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
@@ -214,40 +215,7 @@
                 value=""
                 required
               />
-              <input
-                type="hidden"
-                compname="PhoneNumber"
-                name="PhoneNumber_countrycode"
-                maxlength="3"
-                phoneFormat="2"
-                size="3"
-                value=""
-                fieldType="11"
-                id="PhoneNumber_countrycode"
-                required
-              />
-              <input
-                type="hidden"
-                compname="PhoneNumber"
-                name="PhoneNumber_first"
-                maxlength="3"
-                phoneFormat="2"
-                size="3"
-                value=""
-                id="PhoneNumber_first"
-                required
-              />
-              <input
-                type="hidden"
-                compname="PhoneNumber"
-                name="PhoneNumber_second"
-                maxlength="4"
-                phoneFormat="2"
-                size="4"
-                value=""
-                id="PhoneNumber_second"
-                required
-              />
+             
             </div>
           </div>
           <div class="mb-6">
@@ -328,7 +296,7 @@
                 required
               />
             </div>
-            <div>
+            <div class="mb-3">
               <label
                 for="country"
                 class="block mb-2 text-sm font-medium text-gray-900"

@@ -18,9 +18,6 @@ const formatPhoneNumber = (event) => {
 
   if (event.target.value.length == 10) {
     const phoneNumber = event.target.value;
-    document.querySelector("#PhoneNumber_countrycode").value = phoneNumber.slice(0, 3);
-    document.querySelector("#PhoneNumber_first").value = phoneNumber.slice(3, 6);
-    document.querySelector("#PhoneNumber_second").value = phoneNumber.slice(6);
     document.querySelector("#phone").value = `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`
   }
 };
