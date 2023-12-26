@@ -20,6 +20,7 @@ eleventyNavigation:
           accept-charset="UTF-8"
           enctype="multipart/form-data"
         >
+          <input type="hidden" name="zf_redirect_url" value="/" /> <!-- Create a "Thank you for submitting" page -->
           <p class="text-gray-600 mb-3 mt-3">Contact Details</p>
           <div class="grid gap-6 mb-0 md:grid-cols-2">
             <div>
@@ -75,11 +76,14 @@ eleventyNavigation:
                 id="phone"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 focus:border-1 block w-full p-2.5"
                 placeholder="(123) 456-7890"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}"
                 onkeydown="formatPhoneNumber(event)"
                 value=""
                 required
               />
+              <input type="hidden" compname="PhoneNumber" name="PhoneNumber_countrycode" maxlength="3" phoneFormat="2" size="3" value="" fieldType=11 id="PhoneNumber_countrycode" required />
+              <input type="hidden" compname="PhoneNumber" name="PhoneNumber_first" maxlength="3" phoneFormat="2" size="3" value="" id="PhoneNumber_first" required />
+              <input type="hidden" compname="PhoneNumber" name="PhoneNumber_second" maxlength="4" phoneFormat="2" size="4" value="" id="PhoneNumber_second" required />
             </div>
           </div>
           <div class="mb-6">
@@ -92,11 +96,9 @@ eleventyNavigation:
             <input
               type="text"
               id="Address_AddressLine1"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="(123) 456-7890"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              onkeydown="formatPhoneNumber(event)"
-              value=""
+              maxlength="255"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 focus:border-1 block w-full p-2.5"
+              placeholder="123 Main St."
               required
             />
           </div>

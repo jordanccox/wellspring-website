@@ -9,7 +9,18 @@ const formatPhoneNumber = (event) => {
   }
 
   if (event.key == "Backspace") {
-    const newValue = event.target.value.slice(0, event.target.value.length - 1);
+    const regex = /[0-9]*/g;
+    const match = event.target.value.match(regex);
+    const oldValue = match.filter((char) => Number(char)).join("");
+    const newValue = oldValue.slice(0, oldValue.length - 1);
     event.target.value = newValue;
+  }
+
+  if (event.target.value.length == 10) {
+    const phoneNumber = event.target.value;
+    document.querySelector("#PhoneNumber_countrycode").value = phoneNumber.slice(0, 3);
+    document.querySelector("#PhoneNumber_first").value = phoneNumber.slice(3, 6);
+    document.querySelector("#PhoneNumber_second").value = phoneNumber.slice(6);
+    document.querySelector("#phone").value = `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`
   }
 };
