@@ -144,7 +144,7 @@
           id="form"
           accept-charset="UTF-8"
           enctype="multipart/form-data"
-          data-netlify-recaptcha="true"
+          netlify-honeypot="botsOnly"
           netlify
         >
           <!-- Create a "Thank you for submitting" page -->
@@ -377,99 +377,11 @@
               class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-orange-600 focus:border-orange-600 focus:border-1"
             ></textarea>
           </div>
-          
-          <!-- start recaptcha -->
-          <div class="mb-6">
-            <script
-              type="text/javascript"
-              async=""
-              src="https://www.gstatic.com/recaptcha/releases/u-xcq3POCWFlCr3x8_IPxgPu/recaptcha__en.js"
-              crossorigin="anonymous"
-              integrity="sha384-CDkofqMo6hSAPRh2TZj9HOLusb5hze4z6vkh6YWvd810w+KTuT5lucK9hQN36Xh7"
-            ></script>
-            <script src="https://www.google.com/recaptcha/api.js"></script>
-            <div
-              class="g-recaptcha"
-              data-sitekey="6LdAvUIUAAAAAHjrjmjtNTcXyKm0WKwefLp-dQv9"
-            >
-              <div style="width: 304px; height: 78px">
-                <div>
-                  <iframe
-                    title="reCAPTCHA"
-                    width="304"
-                    height="78"
-                    role="presentation"
-                    name="a-uqg3xiw8la1d"
-                    frameborder="0"
-                    scrolling="no"
-                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-                    src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdAvUIUAAAAAHjrjmjtNTcXyKm0WKwefLp-dQv9&amp;co=aHR0cHM6Ly93ZWxsc3ByaW5nLXNpdGUtaW4tcHJvZ3Jlc3MubmV0bGlmeS5hcHA6NDQz&amp;hl=en&amp;v=u-xcq3POCWFlCr3x8_IPxgPu&amp;size=normal&amp;cb=mfm4syjtvaxt"
-                  ></iframe>
-                </div>
-                <textarea
-                  id="g-recaptcha-response"
-                  name="g-recaptcha-response"
-                  class="g-recaptcha-response"
-                  style="
-                    width: 250px;
-                    height: 40px;
-                    border: 1px solid rgb(193, 193, 193);
-                    margin: 10px 25px;
-                    padding: 0px;
-                    resize: none;
-                    display: none;
-                  "
-                ></textarea>
-              </div>
-              <iframe style="display: none"></iframe>
-            </div>
-            <noscript>
-              <div>
-                <div style="width: 302px; height: 422px; position: relative">
-                  <div style="width: 302px; height: 422px; position: absolute">
-                    <iframe
-                      src="https://www.google.com/recaptcha/api/fallback?k=6LdAvUIUAAAAAHjrjmjtNTcXyKm0WKwefLp-dQv9"
-                      frameborder="0"
-                      scrolling="no"
-                      style="width: 302px; height: 422px; border-style: none"
-                    >
-                    </iframe>
-                  </div>
-                </div>
-                <div
-                  style="
-                    width: 300px;
-                    height: 60px;
-                    border-style: none;
-                    bottom: 12px;
-                    left: 25px;
-                    margin: 0px;
-                    padding: 0px;
-                    right: 25px;
-                    background: #f9f9f9;
-                    border: 1px solid #c1c1c1;
-                    border-radius: 3px;
-                  "
-                >
-                  <textarea
-                    id="g-recaptcha-response"
-                    name="g-recaptcha-response"
-                    class="g-recaptcha-response"
-                    style="
-                      width: 250px;
-                      height: 40px;
-                      border: 1px solid #c1c1c1;
-                      margin: 10px 25px;
-                      padding: 0px;
-                      resize: none;
-                    "
-                  >
-                  </textarea>
-                </div>
-              </div>
-            </noscript>
+          <div class="hidden">
+            <label>
+              Only a bot would fill this out: <input name="botsOnly" />
+            </label>
           </div>
-          <!-- End recaptcha-->
           <button
             type="submit"
             class="py-2 px-5 text-base bg-gray-50 rounded ring-1 ring-slate-800 hover:ring-1 hover:ring-orange-600 font-semibold hover:text-orange-600 w-full sm:w-fit"
