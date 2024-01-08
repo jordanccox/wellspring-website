@@ -1,182 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="{{ description }}" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/style.css" />
-    <title>{{ title }}</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-  </head>
-  <body>
-    <nav class="bg-white border-gray-200">
-      <div
-        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 pt-6"
-      >
-        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img
-            src="/images/thumbnail_wellspring_logo.png"
-            class="sm:h-16 h-14"
-            alt="Wellspring Logo"
-          />
-          <div class="col-2">
-            <span class="self-center sm:text-2xl text-lg whitespace-nowrap font-semibold"
-              >Wellspring Home Services</span
-            >
-            <br />
-            <p class="text-center sm:text-base text-sm">Quality & Transparency</p>
-          </div>
-        </a>
-        <button
-          data-collapse-toggle="navbar-dropdown"
-          type="button"
-          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-dropdown"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Open main menu</span>
-          <svg
-            class="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
-        <div class="hidden w-full lg:block lg:w-auto" id="navbar-dropdown">
-          {% set navPages = collections.all | eleventyNavigation %}
-          <ul
-            class="flex flex-col font-medium p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white"
-          >
-            {%- for entry in navPages %}
-            <li>
-              <a
-                href="{{ entry.url }}"
-                {% if entry.url == page.url %}
-                class="block py-2 px-3 lg:p-0 selectedLink"
-                aria-current="page"
-                {% else %}
-                class="block py-2 px-3 lg:p-0 text-gray-800"
-                {% endif %}
-                id={{entry.key}}
-                >{{ entry.key }}</a
-              >
-            </li>
-            {%- endfor %}
-            {# <li> #}
-              {# <a
-                href="/"
-                class="block py-2 px-3 md:p-0 selectedLink"
-                aria-current="page"
-                id="home"
-                >Home</a
-              >
-            </li>
-            <li>
-              <button
-                id="dropdownNavbarLink"
-                data-dropdown-toggle="dropdownNavbar"
-                class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-              >
-                Dropdown
-                <svg
-                  class="w-2.5 h-2.5 ms-2.5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 1 4 4 4-4"
-                  />
-                </svg>
-              </button>
-              <!-- Dropdown menu -->
-              <div
-                id="dropdownNavbar"
-                class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-              >
-                <ul
-                  class="py-2 text-sm text-gray-700 dark:text-gray-400"
-                  aria-labelledby="dropdownLargeButton"
-                >
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >Dashboard</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >Settings</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >Earnings</a
-                    >
-                  </li>
-                </ul>
-                <div class="py-1">
-                  <a
-                    href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >Sign out</a
-                  >
-                </div>
-              </div>
-            </li>
-            <li>
-              <a
-                href="/portfolio"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent navbarLink"
-                id="portfolio"
-                >Portfolio</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >Pricing</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >Contact</a
-              >
-            </li> #}
-          </ul>
-        </div>
-      </div>
-    </nav>
-    {# <hr class="container mx-auto border-gray-500 mt-4" /> #}
-    {{ content | safe }}
 
-    <script src="/bundle.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ description }}" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <title>{{ title }}</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+</head>
+
+<body>
+  <nav class="bg-white border-gray-200">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 pt-6">
+      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="/images/thumbnail_wellspring_logo.png" class="sm:h-16 h-14" alt="Wellspring Logo" />
+        <div class="col-2">
+          <span class="self-center sm:text-2xl text-lg whitespace-nowrap font-semibold">Wellspring Home Services</span>
+          <br />
+          <p class="text-center sm:text-base text-sm">Quality & Transparency</p>
+        </div>
+      </a>
+      <button data-collapse-toggle="navbar-dropdown" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="navbar-dropdown" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+      <div class="hidden w-full lg:block lg:w-auto" id="navbar-dropdown">
+        {% set navPages = collections.all | eleventyNavigation %}
+        <ul
+          class="flex flex-col font-medium p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white">
+          {%- for entry in navPages %}
+          <li>
+            <a href="{{ entry.url }}" {% if entry.url==page.url %} class="block py-2 px-3 lg:p-0 selectedLink"
+              aria-current="page" {% else %} class="block py-2 px-3 lg:p-0 text-gray-800" {% endif %}
+              id={{entry.key}}>{{ entry.key }}</a>
+          </li>
+          {%- endfor %}
+          {# <li> #}
+            {# <a href="/" class="block py-2 px-3 md:p-0 selectedLink" aria-current="page" id="home">Home</a>
+          </li>
+          <li>
+            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+              class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+              Dropdown
+              <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 1 4 4 4-4" />
+              </svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownNavbar"
+              class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                </li>
+                <li>
+                  <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                </li>
+              </ul>
+              <div class="py-1">
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                  out</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="/portfolio"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent navbarLink"
+              id="portfolio">Portfolio</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li> #}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {#
+  <hr class="container mx-auto border-gray-500 mt-4" /> #}
+  {{ content | safe }}
+  <!-- Footer start-->
+  <footer class="bg-white mt-4">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="lg:flex lg:items-center lg:justify-between flex gap-y-6 flex-wrap justify-center">
+          <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="/images/thumbnail_wellspring_logo.png" class="sm:h-16 h-14" alt="Wellspring Logo" />
+            <div class="col-2">
+              <span class="self-center sm:text-2xl text-lg whitespace-nowrap font-semibold">Wellspring Home Services</span>
+              <br />
+              <p class="text-center sm:text-base text-sm">Quality & Transparency</p>
+            </div>
+          </a>
+            <ul class="flex flex-wrap items-center mb-6 ms-6 text-sm font-medium text-gray-500 sm:mb-0">
+              {%- for entry in navPages %}
+              <li>
+                <a href="{{ entry.url }}" class="hover:underline me-4 md:me-6"
+                    id={{entry.key}}>{{ entry.key }}</a>
+              </li>
+              {%- endfor %}
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" class="hover:underline">Wellspring Home Services</a>. All Rights Reserved. Custom website built & hosted by <a href="https://github.com/jordanccox" target="_blank" class="hover:underline">Jordan Cox</a></span>
+    </div>
+  </footer>
+  <!-- Footer end -->
+
+  <script src="/bundle.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+</body>
+
 </html>
