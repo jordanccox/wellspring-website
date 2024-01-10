@@ -66,7 +66,7 @@ eleventyNavigation:
   <div class="container mx-auto bg-gray-50 p-4 sm:px-12 px-8 rounded">
     <h1 class="mt-2">Our Story</h1>
     <p class="text-gray-800">
-      {{ about.ourStory }}
+      {{ about.ourStorySnippet }}
     </p>
     <div class="flex flex-col sm:flex-row sm:justify-center">
       <a
@@ -174,7 +174,7 @@ eleventyNavigation:
   <div class="container mx-auto bg-gray-50 p-4 sm:px-12 px-8 rounded">
     <h1 class="mt-2 mb-6">Our Services</h1>
     <div class="flex flex-wrap justify-evenly gap-y-8 mb-4">
-  {% for service in ourServices %}
+    {% for service in ourServices %}
     <!-- Service Card -->
       <div
         class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex-auto"
@@ -206,7 +206,7 @@ eleventyNavigation:
           </div>
         </div>
       </div>
-  {% endfor %}
+    {% endfor %}
   </div>
 </section>
 
