@@ -34,12 +34,18 @@
     @apply font-bold;
     @apply text-slate-800;
     @apply text-center;
-    @apply mb-2
+    @apply mb-2;
   }
 
   #getStarted:hover {
     @apply text-slate-800;
     @apply bg-orange-600;
+  }
+
+  @media only screen and (min-width: 437px) {
+    .xsImage {
+      @apply float-right;
+    }
   }
 }
 
@@ -50,6 +56,6 @@
 
 /* For IE, Edge and Firefox */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
