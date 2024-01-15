@@ -7,7 +7,30 @@ eleventyNavigation:
   order: 1
 ---
 
-<main class="bg-orange-500 pb-8 pt-8 mt-4 px-2">
+<!-- Hero -->
+
+<header
+  {#
+  class="bg-[url('./images/kitchen-stove.jpg')] w-full bg-center bg-cover mt-4"
+  #}
+  {#
+  class="bg-[url('./images/portfolio-carousel/prouty-kitchen.jpg')] w-full bg-center bg-cover mt-4"
+  #}
+  class="bg-[url('./images\team-members\team-hero-2-920w.jpg')] lg:bg-[url('./images\team-members\team-hero-2-1270w.jpg')] xl:bg-[url('./images\team-members\team-hero-2-1760w.jpg')] 2xl:bg-[url('./images\team-members\team-hero-2.JPEG')] bg-blur-sm w-full bg-center bg-cover mt-4"
+>
+  <div
+    class="py-20 px-4 mx-auto max-w-screen-xl text-center lg:py-32 lg:px-12 xl:py-38"
+  >
+    <div class="bg-white rounded bg-opacity-0 pb-2">
+      <h1
+        class="mb-4 text-4xl font-bold tracking-tight leading-none text-slate-800 md:text-5xl lg:text-6xl pt-3 opacity-0"
+      >
+        About Wellspring
+      </h1>
+    </div>
+  </div>
+</header>
+<main class="bg-orange-500 pb-8 pt-8 px-2"> <!--mt-4-->
   <div class="container mx-auto bg-gray-50 p-4 sm:px-12 px-8 rounded">
     <h1 class="mt-2">About Wellspring</h1>
     <article class="xl:mb-14 mb-2 relative overflow-auto">
