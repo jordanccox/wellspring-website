@@ -41,6 +41,7 @@ const testimonials = [
   }
 ];
 
+// Testimonials index
 let currentIndex = 0;
 
 /**
