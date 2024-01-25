@@ -36,7 +36,7 @@ button Add 'Leave Us a Review' button that goes to Google page #}
 
 <main class="bg-orange-500 pb-8 pt-8 px-2">
   <div class="container mx-auto bg-gray-50 p-4 sm:px-12 px-8 rounded">
-    <div class="flex flex-wrap justify-evenly gap-y-8 mb-4 mt-4">
+    <div class="flex flex-wrap justify-evenly gap-y-8 mb-4 mt-4" id="testimonials-section">
       {% for testimony in testimonialsPage %}
       <!-- Service Card -->
       <div
@@ -122,6 +122,14 @@ button Add 'Leave Us a Review' button that goes to Google page #}
         </div>
       </div>
       {% endfor %}
+    </div>
+    <div class="flex flex-col sm:flex-row sm:justify-center">
+      <button
+        id="load-more-testimonials"
+        onclick="loadMoreTestimonials()"
+        class="disabled:hover:cursor-default disabled:text-gray-500 disabled:ring-gray-500 inline-flex justify-center items-center py-3 px-5 text-base bg-gray-50 rounded ring-1 ring-slate-800 hover:ring-1 hover:ring-orange-600 font-semibold mt-5 mb-3 hover:cursor-pointer hover:text-orange-600"
+        >Load More Testimonials</button
+      >
     </div>
   </div>
 </main>
