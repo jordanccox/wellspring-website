@@ -186,7 +186,7 @@ const lightboxImage = (event) => {
 
   document.querySelector("#lightbox-image").replaceChildren();
 
-  const template = `<img src="${imgSrc}" alt="" />`;
+  const template = `<img src="${imgSrc}" alt="" class="h-auto" />`;
 
   document.querySelector("#lightbox-image").insertAdjacentHTML("beforeend", template);
 };
