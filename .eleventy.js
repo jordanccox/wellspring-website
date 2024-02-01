@@ -52,13 +52,7 @@ const resizeImages = async () => {
       console.log("File written successfully");
     }
   });
-  let url = './images/portfolio-gallery/barndoors-1.jpeg';
-  let stats = await Image(url, {
-    widths: [300, 430, 600, 770, 940, "auto"],
-    formats: ["webp"]
-  });
 
-  // console.log(stats);
 };
 
 // resizeImages();

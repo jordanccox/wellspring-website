@@ -41,22 +41,17 @@ eleventyNavigation:
       {% for arr in resizedPortfolioGallery %}
       <div>
         <img
-          class="h-auto max-w-full rounded-lg aspect-square"
+          class="h-auto max-w-full object-cover rounded-lg aspect-[4/3]"
           srcset="
           {% for item in arr %}
           ..{{item}},
           {%endfor%}
           "
-          src="{{arr[arr.length - 1]}}"
+          src="{{ arr[arr.length - 1] }}"
+          {# sizes="(min-width: 1540px) 445px, (min-width: 1280px) calc(2.08vw + 352px), (min-width: 1040px) 299px, (min-width: 780px) 209px, (min-width: 640px) calc(6.67vw + 213px), calc(50vw - 48px)" #}
+          sizes="(min-width: 1540px) 445px, (min-width: 1280px) 430px, (min-width: 1040px) 300px, calc(50vw - 48px)"
           alt=""
         />
-        {#
-        <img
-          class="h-auto max-w-full rounded-lg aspect-square"
-          src="../images/portfolio-gallery/{{ item }}"
-          alt=""
-        />
-        #}
       </div>
       {% endfor %}
     </div>
