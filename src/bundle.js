@@ -177,3 +177,16 @@ const loadMoreTestimonials = () => {
 
   document.querySelector("#testimonials-section").insertAdjacentHTML("beforeend", nextTestimonialsGroup.join("\n"));
 };
+
+/**
+ * Select image to display in lightbox
+ */
+const lightboxImage = (event) => {
+  const imgSrc = event.target.src.replace(/%20.*/, "");
+
+  document.querySelector("#lightbox-image").replaceChildren();
+
+  const template = `<img src="${imgSrc}" alt="" />`;
+
+  document.querySelector("#lightbox-image").insertAdjacentHTML("beforeend", template);
+};
