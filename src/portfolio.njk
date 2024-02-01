@@ -38,13 +38,25 @@ eleventyNavigation:
     <p>carousel here</p>
     <h1>Gallery</h1>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      {% for item in portfolioGallery %}
+      {% for arr in resizedPortfolioGallery %}
       <div>
+        <img
+          class="h-auto max-w-full rounded-lg aspect-square"
+          srcset="
+          {% for item in arr %}
+          ..{{item}},
+          {%endfor%}
+          "
+          src="{{arr[arr.length - 1]}}"
+          alt=""
+        />
+        {#
         <img
           class="h-auto max-w-full rounded-lg aspect-square"
           src="../images/portfolio-gallery/{{ item }}"
           alt=""
         />
+        #}
       </div>
       {% endfor %}
     </div>
