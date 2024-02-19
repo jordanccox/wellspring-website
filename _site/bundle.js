@@ -178,12 +178,25 @@ const loadMoreTestimonials = () => {
   document.querySelector("#testimonials-section").insertAdjacentHTML("beforeend", nextTestimonialsGroup.join("\n"));
 };
 
-/**
- * Select image to display in lightbox
+/** 
+ * Get list of all images
  */
-const lightboxImage = (event) => {
-  const imgSrc = event.target.src.replace(/%20.*/, "");
+const allImages = (event) => {
+  const gallery = document.querySelector("#gallery-images");
 
+  const images = [];
+  const divs = gallery.querySelectorAll('div img');
+  for (const img of divs) {
+    images.push(img.src.replace(/%20.*/, ""));
+  }
+
+  return images;
+};
+
+/**
+ * Populate lightbox
+ */
+const populateLightbox = (imgSrc, prevAndNext) => {
   document.querySelector("#lightbox-image").replaceChildren();
 
   const template = `
@@ -192,7 +205,7 @@ const lightboxImage = (event) => {
      <button
           type="button"
           class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-          data-carousel-prev
+          onclick="prevImage('${prevAndNext.prev}')"
         >
           <span
             class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-gray-800/70 group-focus:outline-none"
@@ -217,8 +230,8 @@ const lightboxImage = (event) => {
         </button>
         <button
           type="button"
-          class="absolute bottom-0 end-0 z-30 flex items-center justify-center px-4 h-full cursor-pointer group focus:outline-none"
-          data-carousel-next
+          class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+          onclick="nextImage('${prevAndNext.next}')"
         >
           <span
             class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-gray-800/70 group-focus:outline-none"
@@ -244,4 +257,141 @@ const lightboxImage = (event) => {
   `;
 
   document.querySelector("#lightbox-image").insertAdjacentHTML("beforeend", template);
+};
+
+/**
+ * Prev image
+ */
+const prevImage = (prev) => {
+  if (prev == "null") {
+    return;
+  }
+
+  const imgSrc = prev;
+
+  const gallery = allImages();
+  const newPrevAndNext = { prev: null, next: null };
+
+  gallery.forEach((image, index, arr) => {
+    if (image == imgSrc) {
+      if (index > 0) {
+        newPrevAndNext.prev = arr[index - 1];
+      }
+      if (index < arr.length - 1) {
+        newPrevAndNext.next = arr[index + 1];
+      }
+    }
+  });
+
+  populateLightbox(imgSrc, newPrevAndNext);
+};
+
+/**
+ * Next image
+ */
+const nextImage = (next) => {
+  if (next == "null") {
+    return;
+  }
+
+  const imgSrc = next;
+
+  const gallery = allImages();
+  const newPrevAndNext = { prev: null, next: null };
+
+  gallery.forEach((image, index, arr) => {
+    if (image == imgSrc) {
+      if (index > 0) {
+        newPrevAndNext.prev = arr[index - 1];
+      }
+      if (index < arr.length - 1) {
+        newPrevAndNext.next = arr[index + 1];
+      }
+    }
+  });
+
+  populateLightbox(imgSrc, newPrevAndNext);
+};
+
+/**
+ * Select image to display in lightbox
+ */
+const lightboxImage = (event) => {
+  const imgSrc = event.target.src.replace(/%20.*/, "");
+  
+  const gallery = allImages();
+  const prevAndNext = { prev: null, next: null };
+
+  gallery.forEach((image, index, arr) => {
+    if (image == imgSrc) {
+      if (index > 0) {
+        prevAndNext.prev = arr[index - 1];
+      }
+      if (index < arr.length - 1) {
+        prevAndNext.next = arr[index + 1];
+      }
+    }
+  });
+
+  populateLightbox(imgSrc, prevAndNext);
+
+  // document.querySelector("#lightbox-image").replaceChildren();
+
+  // const template = `
+  // <img src="${imgSrc}" alt="" class="h-auto max-h-screen mx-auto" />
+  // <!-- Slider controls -->
+  //    <button
+  //         type="button"
+  //         class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+  //         onclick="prevImage(${prevAndNext})"
+  //       >
+  //         <span
+  //           class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-gray-800/70 group-focus:outline-none"
+  //         >
+  //           <svg
+  //             class="w-4 h-4 text-white rtl:rotate-180"
+  //             aria-hidden="true"
+  //             xmlns="http://www.w3.org/2000/svg"
+  //             fill="none"
+  //             viewBox="0 0 6 10"
+  //           >
+  //             <path
+  //               stroke="currentColor"
+  //               stroke-linecap="round"
+  //               stroke-linejoin="round"
+  //               stroke-width="2"
+  //               d="M5 1 1 5l4 4"
+  //             />
+  //           </svg>
+  //           <span class="sr-only">Previous</span>
+  //         </span>
+  //       </button>
+  //       <button
+  //         type="button"
+  //         class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+  //       >
+  //         <span
+  //           class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:ring-gray-800/70 group-focus:outline-none"
+  //         >
+  //           <svg
+  //             class="w-4 h-4 text-white rtl:rotate-180"
+  //             aria-hidden="true"
+  //             xmlns="http://www.w3.org/2000/svg"
+  //             fill="none"
+  //             viewBox="0 0 6 10"
+  //           >
+  //             <path
+  //               stroke="currentColor"
+  //               stroke-linecap="round"
+  //               stroke-linejoin="round"
+  //               stroke-width="2"
+  //               d="m1 9 4-4-4-4"
+  //             />
+  //           </svg>
+  //           <span class="sr-only">Next</span>
+  //         </span>
+  //       </button> 
+  // `;
+
+  // document.querySelector("#lightbox-image").insertAdjacentHTML("beforeend", template);
 };
