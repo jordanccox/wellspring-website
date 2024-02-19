@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the path to your image folder
-image_folder="./images/portfolio-gallery"
+image_folder="./images/portfolio-featured"
 
 # Check if the folder exists
 if [ ! -d "$image_folder" ]; then

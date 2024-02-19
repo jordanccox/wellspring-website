@@ -22,16 +22,16 @@ const postcssFilter = (cssCode, done) => {
 };
 
 const resizeImages = async () => {
-  const data = fs.readFileSync('./src/_data/portfolioGallery.json', 'utf8');
+  const data = fs.readFileSync('./src/_data/portfolioFeatured.json', 'utf8');
   const imageArray = JSON.parse(data);
 
   const srcsetArray = [];
 
   for (const image of imageArray) {
     try {
-      const url = `./images/portfolio-gallery/${image}`;
+      const url = `./images/portfolio-featured/${image}`;
       const stats =  await Image(url, {
-        widths: [300, 430, 600, 770, 940, "auto"],
+        widths: [480, 920, 1270, 1400, 1760, 2048, "auto"],
         formats: ["webp"]
       });
 
@@ -45,7 +45,7 @@ const resizeImages = async () => {
     }
   }
   
-  fs.writeFileSync('./src/_data/resizedPortfolioGallery.json', JSON.stringify(srcsetArray), (err) => {
+  fs.writeFileSync('./src/_data/resizedPortfolioFeatured.json', JSON.stringify(srcsetArray), (err) => {
     if (err) {
       console.error(err);
     } else {
